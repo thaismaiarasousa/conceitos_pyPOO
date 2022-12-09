@@ -9,7 +9,7 @@ import turtle
 def square(t, length):
     """Desenha um quadrado com os lados do comprimento por definir.
     Aplicando a generalização do comprimento de lado o quadrado pode passar
-    a ter qualquer tamanho. O turtle retorna para a posição inicial.
+    a ter qualquer tamanho. O turtle volta para a posição inicial.
     """
     for i in range(4):
         t.fd(length)
@@ -40,7 +40,7 @@ def arc(t, r, angle):
     t.rt(step_angle/2)
 
 
-    #Como não podemos usar polygon ou circle para desenhar 
+    # Como não podemos usar polygon ou circle para desenhar 
     # um arco, uma alternativa é começar com uma cópia de polygon 
     # e transformá-la em arc. Neste caso, notamos que houve código 
     # semelhante em arc e polygon, então este é fatorado no polyline.
