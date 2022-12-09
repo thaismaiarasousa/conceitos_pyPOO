@@ -9,7 +9,7 @@ import turtle
 def square(t, length):
     """Desenha um quadrado com os lados do comprimento por definir.
     Aplicando a generalização do comprimento de lado o quadrado pode passar
-    a ter qualquer tamanho. O turtle volta para a posição inicial.
+    a ter qualquer tamanho. O turtle retorna para a posição inicial.
     """
     for i in range(4):
         t.fd(length)
