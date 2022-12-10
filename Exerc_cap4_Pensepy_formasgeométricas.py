@@ -16,8 +16,31 @@ def square(t, length):
         t.lt(90)
 
 
+def polyline(t, n, length, angle):
+    """Desenha n segmentos de linha.
+     t: Objeto Turtle.
+     n: número de segmentos de linha.
+     length: comprimento de cada segmento.
+     angle: graus entre os segmentos.
+    """
+    for i in range(n):
+        t.fd(length)
+        t.lt(angle)
+
+
+def polygon(t, n, length):
+    """Desenha um polígono com n lados.
+     t: Turtle.
+     n: número de lados.
+     comprimento: comprimento de cada lado.
+     Se refatora polyline.
+    """
+    angle = 360.0/n
+    polyline(t, n, length, angle)
+
+
 def arc(t, r, angle):
-    """Desenha um arco com o raio e o ângulo dados.
+    """Desenha um arco com raio e ângulo dados.
      t: Turtle.
      r: raio.
      angle: ângulo subtendido pelo arco, em graus.
@@ -39,34 +62,10 @@ def arc(t, r, angle):
     polyline(t, n, step_length, step_angle)
     t.rt(step_angle/2)
 
-
     # Como não podemos usar polygon ou circle para desenhar 
     # um arco, uma alternativa é começar com uma cópia de polygon 
     # e transformá-la em arc. Neste caso, notamos que houve código 
     # semelhante em arc e polygon, então este é fatorado no polyline.
-
-
-def polyline(t, n, length, angle):
-    """Desenha n segmentos de linha.
-     t: Objeto Turtle.
-     n: número de segmentos de linha.
-     length: comprimento de cada segmento.
-     angle: graus entre os segmentos.
-    """
-    for i in range(n):
-        t.fd(length)
-        t.lt(angle)
-
-
-def polygon(t, n, length):
-    """Desenha um polígono com n lados.
-     t: Turtle.
-     n: número de lados.
-     comprimento: comprimento de cada lado.
-     Se refatora polyline 
-    """
-    angle = 360.0/n
-    polyline(t, n, length, angle)
 
 
 # Finalmente torna-se possível reenscrever circle para usar arc.
@@ -81,7 +80,7 @@ def circle(t, r):
 
 # a seguinte condição verifica se estamos
 # executando como um script (executa o código de teste, nesse caso),
-# ou sendo importado, caso contrário.
+# ou se está sendo importado.
 
 if __name__ == '__main__':
     bob = turtle.Turtle()
@@ -93,6 +92,3 @@ if __name__ == '__main__':
     bob.lt(90)
     bob.pd()
     circle(bob, radius)
-
-    # para aguardar o usuário fechar a janela
-    turtle.mainloop()
