@@ -10,7 +10,6 @@ from __future__ import print_function, division
 
 def true_triple_doble(word):
     """Testa se uma palavra contém três letras duplas consecutivas.
-    
     word: string
     returns: boolean
     """
@@ -30,11 +29,15 @@ def true_triple_doble(word):
 
 def buscar_triple_doble():
     """Lê uma lista de palavras e imprime palavras com letras duplas triplas."""
-    buscar = open('words.txt', encoding="utf-8")
-   
+    
+    # se atribui a função open() e seus parametros
+    # à variável buscar.
+    buscar = open('words.txt', 'r', encoding="utf-8") 
+    
     for line in buscar:
-        word = line.strip() # retorna a lista das strings s usando os 
+        # retorna a lista das strings usando os 
         # caracteres em BRANCO como separadores.
+        word = line.strip() 
         if true_triple_doble(word):
             print(word)
 
